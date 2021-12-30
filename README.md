@@ -4,8 +4,6 @@ Store provides the ability to write the data structures to a file and read from 
 
 The module provides possibility of the data structures in a JSON format or in a binary format. During the writing or reading process the file is locked.
 
-Das Lesen/Schreiben im JSON-Format wurden mit der Standard-Bibliothek [encoding/json](https://pkg.go.dev/encoding/json) umgesetzt.
-
 Reading/writing in JSON format were implemented with the standard library [encoding/json](https://pkg.go.dev/encoding/json).
 
 For reading/writing in binary format the module is [encoding/gob](https://pkg.go.dev/encoding/gob) used.
