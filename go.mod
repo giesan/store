@@ -1,3 +1,3 @@
-module giesan/store
+module github.com/giesan/store
 
 go 1.17
