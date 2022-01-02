@@ -6,7 +6,7 @@ The module provides possibility of the data structures in a JSON format or in a 
 
 Reading/writing in JSON format were implemented with the standard library [encoding/json](https://pkg.go.dev/encoding/json).
 
-For reading/writing in binary format the module is [encoding/gob](https://pkg.go.dev/encoding/gob) used.
+The module [encoding/gob](https://pkg.go.dev/encoding/gob) is used for reading/writing in binary format.
 
 
 # Usage
