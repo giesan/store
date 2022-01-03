@@ -2,7 +2,7 @@
 
 Store provides the ability to write the data structures to a file and read from a file in the [Go](https://go.dev/) programming language.
 
-The module provides possibility of the data structures in a JSON format or in a binary format. During the writing or reading process the file is locked.
+This module was inspired by [Perl Storable](https://perldoc.perl.org/Storable). The module provides possibility of the data structures in a JSON format or in a binary format. During the writing or reading process the file is locked.
 
 Reading/writing in JSON format were implemented with the standard library [encoding/json](https://pkg.go.dev/encoding/json).
 
