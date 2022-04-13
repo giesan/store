@@ -8,12 +8,21 @@ Reading/writing in JSON format were implemented with the standard library [encod
 
 The module [encoding/gob](https://pkg.go.dev/encoding/gob) is used for reading/writing in binary format.
 
+# Install
+
+```
+go get -u github.com/giesan/store
+```
 
 # Usage
 
 ## Writing in JSON format to a file:
 
 ```
+package main
+
+import "giesan/store"
+
 type message struct {
 	Name      string
 	Timestamp time.Time
@@ -21,32 +30,27 @@ type message struct {
 	Ssid      []uint32
 }
 
-msg := &message{
-    Name:      "John",
-    Timestamp: time.Now(),
-    Payload:   []byte("hi"),
-    Ssid:      []uint32{1, 2, 3},
-}
+func main() {
+    msg := &message{
+        Name:      "John",
+        Timestamp: time.Now(),
+        Payload:   []byte("hi"),
+        Ssid:      []uint32{1, 2, 3},
+    }
 
-if err := WriteJSON("./temp.json", msg); err != nil {
-    log.Fatalln(err)
+    if err := store.WriteJSON("./temp.json", msg); err != nil {
+        log.Fatalln(err)
+    }
 }
 ```
 
 ## Read from a file written in JSON format:
 
 ```
-var msg message
-if err := ReadJSON("./temp.json", &msg); err != nil {
-    log.Fatalln(err)
-}
+package main
 
-fmt.Println(msg.Name) // Output John
-```
+import "giesan/store"
 
-## Writing in binary format to a file:
-
-```
 type message struct {
 	Name      string
 	Timestamp time.Time
@@ -54,26 +58,67 @@ type message struct {
 	Ssid      []uint32
 }
 
-msg := &message{
-    Name:      "John",
-    Timestamp: time.Now(),
-    Payload:   []byte("hi"),
-    Ssid:      []uint32{1, 2, 3},
+func main() {
+    var msg message
+
+    if err := store.ReadJSON("./temp.json", &msg); err != nil {
+        log.Fatalln(err)
+    }
+
+    fmt.Println(msg.Name) // Output John
+}
+```
+
+## Writing in binary format to a file:
+
+```
+package main
+
+import "giesan/store"
+
+type message struct {
+	Name      string
+	Timestamp time.Time
+	Payload   []byte
+	Ssid      []uint32
 }
 
-if err := WriteBinary("./temp.bin", msg); err != nil {
-    log.Fatalln(err)
+func main() {
+    msg := &message{
+        Name:      "John",
+        Timestamp: time.Now(),
+        Payload:   []byte("hi"),
+        Ssid:      []uint32{1, 2, 3},
+    }
+
+    if err := store.WriteBinary("./temp.bin", msg); err != nil {
+        log.Fatalln(err)
+    }
 }
 ```
 
 ## Read from a file written in binary format:
 
 ```
-var msg message
-if err := ReadBinary("./temp.bin", &msg); err != nil {
-    log.Fatalln(err)
+package main
+
+import "giesan/store"
+
+type message struct {
+	Name      string
+	Timestamp time.Time
+	Payload   []byte
+	Ssid      []uint32
 }
-fmt.Println(msg.Name) // Output John
+
+func main() {
+    var msg message
+
+    if err := store.ReadBinary("./temp.bin", &msg); err != nil {
+        log.Fatalln(err)
+    }
+    fmt.Println(msg.Name) // Output John
+}
 ```
 
 # Copyright
