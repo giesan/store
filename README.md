@@ -21,7 +21,12 @@ go get -u github.com/giesan/store
 ```
 package main
 
-import "giesan/store"
+import (
+	"log"
+	"time"
+
+	"github.com/giesan/store"
+)
 
 type message struct {
 	Name      string
@@ -31,16 +36,16 @@ type message struct {
 }
 
 func main() {
-    msg := &message{
-        Name:      "John",
-        Timestamp: time.Now(),
-        Payload:   []byte("hi"),
-        Ssid:      []uint32{1, 2, 3},
-    }
+	msg := &message{
+		Name:      "John",
+		Timestamp: time.Now(),
+		Payload:   []byte("hi"),
+		Ssid:      []uint32{1, 2, 3},
+	}
 
-    if err := store.WriteJSON("./temp.json", msg); err != nil {
-        log.Fatalln(err)
-    }
+	if _, err := store.WriteJSON("./temp.json", msg); err != nil {
+		log.Fatalln(err)
+	}
 }
 ```
 
@@ -49,7 +54,12 @@ func main() {
 ```
 package main
 
-import "giesan/store"
+import (
+	"log"
+	"time"
+
+	"github.com/giesan/store"
+)
 
 type message struct {
 	Name      string
@@ -59,13 +69,13 @@ type message struct {
 }
 
 func main() {
-    var msg message
+	var msg message
 
-    if err := store.ReadJSON("./temp.json", &msg); err != nil {
-        log.Fatalln(err)
-    }
+	if err := store.ReadJSON("./temp.json", &msg); err != nil {
+		log.Fatalln(err)
+	}
 
-    fmt.Println(msg.Name) // Output John
+	log.Println(msg.Name)
 }
 ```
 
@@ -74,7 +84,12 @@ func main() {
 ```
 package main
 
-import "giesan/store"
+import (
+	"log"
+	"time"
+
+	"github.com/giesan/store"
+)
 
 type message struct {
 	Name      string
@@ -84,16 +99,16 @@ type message struct {
 }
 
 func main() {
-    msg := &message{
-        Name:      "John",
-        Timestamp: time.Now(),
-        Payload:   []byte("hi"),
-        Ssid:      []uint32{1, 2, 3},
-    }
+	msg := &message{
+		Name:      "John",
+		Timestamp: time.Now(),
+		Payload:   []byte("hi"),
+		Ssid:      []uint32{1, 2, 3},
+	}
 
-    if err := store.WriteBinary("./temp.bin", msg); err != nil {
-        log.Fatalln(err)
-    }
+	if _, err := store.WriteBinary("./temp.bin", msg); err != nil {
+		log.Fatalln(err)
+	}
 }
 ```
 
@@ -102,7 +117,12 @@ func main() {
 ```
 package main
 
-import "giesan/store"
+import (
+	"log"
+	"time"
+
+	"github.com/giesan/store"
+)
 
 type message struct {
 	Name      string
@@ -112,12 +132,13 @@ type message struct {
 }
 
 func main() {
-    var msg message
+	var msg message
 
-    if err := store.ReadBinary("./temp.bin", &msg); err != nil {
-        log.Fatalln(err)
-    }
-    fmt.Println(msg.Name) // Output John
+	if err := store.ReadBinary("./temp.bin", &msg); err != nil {
+		log.Fatalln(err)
+	}
+
+	log.Println(msg.Name) // Output John
 }
 ```
 
