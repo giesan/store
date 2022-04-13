@@ -138,11 +138,11 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	log.Println(msg.Name) // Output John
+	log.Println(msg.Name)
 }
 ```
 
 # Copyright
 
-Copyright (c) 2021 Andrej Giesbrecht
+Copyright (c) 2022 Andrej Giesbrecht
 
