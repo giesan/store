@@ -18,7 +18,7 @@ go get -u github.com/giesan/store
 
 ## Writing in JSON format to a file:
 
-```
+```golang
 package main
 
 import (
@@ -51,7 +51,7 @@ func main() {
 
 ## Read from a file written in JSON format:
 
-```
+```golang
 package main
 
 import (
@@ -81,7 +81,7 @@ func main() {
 
 ## Writing in binary format to a file:
 
-```
+```golang
 package main
 
 import (
@@ -114,7 +114,7 @@ func main() {
 
 ## Read from a file written in binary format:
 
-```
+```golang
 package main
 
 import (
