@@ -148,4 +148,4 @@ Andrej Giesbrecht
 
 # LICENSE
 
-glg released under MIT license, refer [LICENSE](https://github.com/giesan/store/blob/main/LICENSE) file.
+store released under MIT license, refer [LICENSE](https://github.com/giesan/store/blob/main/LICENSE) file.
