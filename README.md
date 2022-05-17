@@ -142,7 +142,10 @@ func main() {
 }
 ```
 
-# Copyright
+# Author
 
-Copyright (c) 2022 Andrej Giesbrecht
+Andrej Giesbrecht
 
+# LICENSE
+
+glg released under MIT license, refer [LICENSE](https://github.com/giesan/store/blob/main/LICENSE) file.
